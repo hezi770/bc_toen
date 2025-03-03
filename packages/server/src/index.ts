@@ -11,12 +11,9 @@ const server = Fastify({
 });
 
 server.register(fastifyStatic, {
-    root: path.join(__dirname, 'client', 'dist')
+    root: path.join(__dirname, '..', 'dist')
 });
 
-server.get('/', async (request, reply) => {
-    return { success: true, message: 'Hello World!!' };
-});
 
 try {
     await server.listen({ port: 3000 });
